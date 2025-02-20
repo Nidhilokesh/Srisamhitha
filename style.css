@@ -415,12 +415,12 @@
 }
 
 .container {
-    max-width: 1700;
-    margin-top : 0 auto;
-    background-color : #000;
-    max-height: 500;
-    
+    max-width: 1700px;
+    background-color: #000;
+    max-height: 500px;
+    margin-top: 2rem 
 }
+
 
 .header {
     text-align: center;
@@ -491,7 +491,7 @@
     height: 40vh;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('yyy.jpg');
+                url('background3.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
