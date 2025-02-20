@@ -177,3 +177,236 @@ body {
         gap: 0.5rem;
     }
 }
+.footer {
+    background-color: #1a1a1a;
+    padding: 60px 0 40px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 max(20px, 5%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(30px, 4vw, 50px);
+}
+
+/* Logo section */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.footer-logo img {
+    width: clamp(80px, 15vw, 120px);
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.05);
+}
+
+.company-name {
+    color: #ffd700;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    margin: 0;
+}
+
+.company-subtext {
+    color: #ffd700;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    margin: 0;
+}
+
+/* Section headings */
+.footer-section h3 {
+    color: white;
+    margin: 0 0 20px;
+    font-size: clamp(1.1rem, 1.75vw, 1.2rem);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 60px;
+}
+
+/* Links section */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: clamp(8px, 1.5vw, 12px);
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+    transform: translateX(5px);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Contact info */
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+    transform: translateX(5px);
+}
+
+.contact-info svg {
+    width: clamp(16px, 2vw, 20px);
+    height: clamp(16px, 2vw, 20px);
+    margin-right: 12px;
+    fill: #ffd700;
+}
+
+/* Social media */
+.social-media {
+    display: flex;
+    gap: clamp(15px, 2vw, 20px);
+    margin-top: 20px;
+}
+
+.social-media a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-media svg {
+    width: clamp(20px, 2.5vw, 24px);
+    height: clamp(20px, 2.5vw, 24px);
+    fill: currentColor;
+}
+
+.social-media a:hover {
+    color: #ffd700;
+    transform: translateY(-3px);
+}
+
+/* Copyright section */
+.copyright {
+    text-align: center;
+    padding-top: clamp(20px, 3vw, 30px);
+    margin-top: clamp(30px, 4vw, 40px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-logo {
+        grid-column: 1 / -1;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 40px 0 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .contact-info {
+        justify-content: center;
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .footer-links a:hover {
+        transform: translateX(0) scale(1.05);
+    }
+
+    .contact-info:hover {
+        transform: translateX(0) scale(1.05);
+    }
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+    .footer {
+        background-color: white;
+        color: black;
+        padding: 20px 0;
+    }
+
+    .social-media {
+        display: none;
+    }
+}
