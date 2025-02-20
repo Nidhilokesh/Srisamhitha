@@ -50,7 +50,7 @@
 /* Hero Section Styles */
 .hero {
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background.jpeg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/background.jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -444,7 +444,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-   
+
 }
 
 .team-member {
@@ -492,7 +492,7 @@
     height: 40vh;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('background3.jpg');
+                url('../assets/images/background3.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
