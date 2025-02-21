@@ -43,3 +43,28 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     // Optionally, reset the form
     document.getElementById('contactForm').reset();
 });
+
+// Adjust scrolling behavior for mobile devices
+window.addEventListener('resize', function () {
+    if (window.innerWidth < 480) {
+        document.body.style.zoom = "100%"; // Prevents zooming issues on mobile
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elementsToAnimate = document.querySelectorAll(
+        ".contact-features .feature, .contact-section, .map-container, .cta-section"
+    );
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    elementsToAnimate.forEach((el) => observer.observe(el));
+});
+
