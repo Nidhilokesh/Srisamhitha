@@ -25,12 +25,18 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: var(--background-color);
+    background-color: #000000;
     border-bottom: 1px solid #4c4b4a
 }
-
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+}
 .logo img {
-    height: 40px;
+    height: 70px;
 }
 
 .nav-links a {
