@@ -828,9 +828,172 @@
         padding: 10px 20px;
     }
 }
+/* Initially hide the sections */
+/* .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+} */
 
+/* Add different animations */
+/* .animate {
+    animation: fadeIn 0.6s ease-out forwards;
+} */
 
-  
+/* Optional: Different effects for different sections */
+/* .values-section.animate {
+    animation: slideIn 0.8s ease-out forwards;
+}
 
-  
+.achievements-section.animate {
+    animation: scaleIn 0.8s ease-out forwards;
+} */
+
+/* Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animations to existing elements */
+ .hero-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+.stats-container {
+    animation: fadeInUp 1s ease-out 0.3s;
+    animation-fill-mode: both;
+}
+
+.stat-card {
+    animation: scaleIn 0.5s ease-out;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+.value-card, .achievement-card {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-member {
+    animation: slideInLeft 0.6s ease-out;
+    animation-fill-mode: both;
+    transition: all 0.4s ease;
+}
+
+/* Enhanced Mobile Navigation */
+ .hamburger {
+    transition: transform 0.3s ease;
+}
+
+.hamburger.active {
+    transform: rotate(90deg);
+}
+
+.nav-links {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        transform: translateY(-100%);
+        opacity: 0;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+/* Enhanced Responsive Design */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 24px;
+        padding: 0 15px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-card {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .values-grid, .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+}
   
