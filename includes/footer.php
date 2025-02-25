@@ -29,11 +29,19 @@ function renderFooter() {
             <div class="footer-section">
                 <h3>Information</h3>
                 <ul class="footer-links">
+<<<<<<< HEAD
                     <li><a href="../index.php" class="<?php echo isFooterActive('index.php'); ?>">Home</a></li>
                     <li><a href="../pages/about.php" class="<?php echo isFooterActive('about.php'); ?>">About Us</a></li>
                     <li><a href="../pages/project.php" class="<?php echo isFooterActive('project.php'); ?>">Projects</a></li>
                     <li><a href="../pages/gallery.php" class="<?php echo isFooterActive('gallery.php'); ?>">Gallery</a></li>
                     <li><a href="../pages/contact.php" class="<?php echo isFooterActive('contact.php'); ?>">Contact</a></li>
+=======
+                   <li> <a href="../index.php" class="<?php echo isActive('index.php'); ?>">Home</a></li>
+                   <li><a href="#about">About Us</a></li>
+                   <li><a href="../project.php" class="<?php echo isActive('project.php'); ?>">Projects</a></li>
+                   <li><a href="../gallery.php" class="<?php echo isActive('gallery.php'); ?>">Gallery</a></li>
+                   <li><a href="../contact.php" class="<?php echo isActive('contact.php'); ?>">Contact Us</a></li>
+>>>>>>> cbb81ef22e9aa7cd93dcbc3faa0500a41b2fbd77
                 </ul>
             </div>
 
