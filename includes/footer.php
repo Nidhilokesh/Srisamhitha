@@ -37,18 +37,22 @@ function renderFooter() {
                 </ul>
             </div>
 
+                        <!-- Add FontAwesome CDN in your HTML <head> -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
             <div class="footer-section">
                 <h3>Contacts</h3>
                 <div class="contact-info">
-                    <span>📍 1234 Sample Street, Austin TX 78681</span>
+                    <i class="fas fa-map-marker-alt"></i> 1234 Sample Street, Austin TX 78681
                 </div>
                 <div class="contact-info">
-                    <span>📧 <a href="mailto:sampleemail@gmail.com">sampleemail@gmail.com</a></span>
+                    <i class="fas fa-phone-alt"></i> 512.333.2222
                 </div>
                 <div class="contact-info">
-                    <span>📞 512.333.2222</span>
+                    <i class="fas fa-envelope"></i> <a href="mailto:sampleemail@gmail.com">sampleemail@gmail.com</a>
                 </div>
             </div>
+
 
             <div class="footer-section">
                 <h3>Social Media</h3>

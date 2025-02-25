@@ -26,7 +26,7 @@ function isActive($pageName) {
         <button class="hamburger" id="hamburger">&#9776;</button>
         <div class="nav-links" id="nav-links">
             <a href="../index.php" class="<?php echo isActive('index.php'); ?>">Home</a>
-            <a href="../about.php" class="<?php echo isActive('about.php'); ?>">About Us</a>
+            <a href="#about">About Us</a>
             <a href="../project.php" class="<?php echo isActive('project.php'); ?>">Projects</a>
             <a href="../gallery.php" class="<?php echo isActive('gallery.php'); ?>">Gallery</a>
             <a href="../contact.php" class="<?php echo isActive('contact.php'); ?>">Contact Us</a>

@@ -194,3 +194,89 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+// Toggle effect for value and achievement cards
+document.querySelectorAll('.value-card, .achievement-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+});
+
+// Enhanced toggle effect with shadow for value and achievement cards
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.value-card, .achievement-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-5px)';
+            card.style.boxShadow = '0px 10px 15px rgba(255, 215, 0, 0.3)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = 'none';
+        });
+    });
+});
+
+// Toggle effect for image items
+document.addEventListener("DOMContentLoaded", function () {
+    const imageItems = document.querySelectorAll(".image-item img");
+
+    // Hover effect for desktops
+    imageItems.forEach((img) => {
+        img.addEventListener("mouseenter", () => {
+            img.style.transform = "scale(1.05)";
+        });
+
+        img.addEventListener("mouseleave", () => {
+            img.style.transform = "scale(1)";
+        });
+    });
+
+    // Click effect for mobile users
+    imageItems.forEach((img) => {
+        img.addEventListener("click", () => {
+            img.style.transform = "scale(1.05)";
+            setTimeout(() => img.style.transform = "scale(1)", 300);
+        });
+    });
+});
+
+    // Toggle effect for team members
+    document.addEventListener("DOMContentLoaded", function () {
+        const teamMembers = document.querySelectorAll(".team-member");
+
+        // Hover effect for desktop
+        teamMembers.forEach(member => {
+            member.addEventListener("mouseenter", () => {
+                member.style.transform = "translateY(-5px)";
+            });
+
+            member.addEventListener("mouseleave", () => {
+                member.style.transform = "translateY(0)";
+            });
+        });
+
+        // Tap effect for mobile users
+        teamMembers.forEach(member => {
+            member.addEventListener("touchstart", () => {
+                member.style.transform = "translateY(-5px)";
+            });
+
+            member.addEventListener("touchend", () => {
+                setTimeout(() => {
+                    member.style.transform = "translateY(0)";
+                }, 300);
+            });
+        });
+    });
+
+
+
+
