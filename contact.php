@@ -1,4 +1,53 @@
 <?php include 'includes/header.php'; ?>
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstName = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $message = htmlspecialchars($_POST['message']);
+
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'mstrupthi@gmail.com'; // Your Gmail address
+        $mail->Password = 'trupthims776'; // Use App Password here
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port = 587; 
+
+        // Recipients
+        $mail->setFrom($email, "$firstName $lastName");
+        $mail->addAddress('mstrupthi@gmail.com'); // Change to your recipient email
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = "New Contact Form Submission from $firstName $lastName";
+        $mail->Body = "
+            <h2>Contact Form Submission</h2>
+            <p><strong>Name:</strong> $firstName $lastName</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Phone:</strong> $phone</p>
+            <p><strong>Message:</strong><br>$message</p>
+        ";
+
+        $mail->send();
+        echo "success"; // Response for AJAX
+    } catch (Exception $e) {
+        echo "Mailer Error: {$mail->ErrorInfo}";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +55,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contact Us - Sri Samhitha</title>
     <link rel="stylesheet" href="../css/contact.css">
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch("contact.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.status === "success") {
+                    document.getElementById("contactForm").reset();
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+    </script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -106,5 +177,13 @@
     <?php include 'includes/footer.php'; ?>
 
     <script src="../javascript/contact.js"></script>
+    <form id="contactForm">
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </body>
 </html>
