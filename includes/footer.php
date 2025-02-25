@@ -31,7 +31,7 @@ function renderFooter() {
                 <ul class="footer-links">
                     <li><a href="../index.php" class="<?php echo isFooterActive('index.php'); ?>">Home</a></li>
                     <li><a href="../pages/about.php" class="<?php echo isFooterActive('about.php'); ?>">About Us</a></li>
-                    <li><a href="../pages/projects.php" class="<?php echo isFooterActive('projects.php'); ?>">Projects</a></li>
+                    <li><a href="../pages/project.php" class="<?php echo isFooterActive('project.php'); ?>">Projects</a></li>
                     <li><a href="../pages/gallery.php" class="<?php echo isFooterActive('gallery.php'); ?>">Gallery</a></li>
                     <li><a href="../pages/contact.php" class="<?php echo isFooterActive('contact.php'); ?>">Contact</a></li>
                 </ul>
