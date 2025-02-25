@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c9d42189be180ca79a22f0f67ac85c654c656ef9
 document.addEventListener("DOMContentLoaded", function() {
     // Enhanced Navigation Toggle
     const hamburger = document.getElementById("hamburger");
@@ -9,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         this.classList.toggle("active");
         navLinks.classList.toggle("show");
     });
+
 
     // Close mobile menu when clicking outside
     document.addEventListener("click", function(e) {
@@ -59,3 +63,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
