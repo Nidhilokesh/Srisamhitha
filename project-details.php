@@ -68,19 +68,19 @@ $project = $projects[$projectKey];
 <body>
     <?php include 'includes/header.php'; ?>
     
-    <div class="project-details-container">
+    < <div class="project-details-container">
         <div class="project-header">
-            <h1 id="project-title">Project Name</h1>
+            <h1 id="project-title"><?php echo $project['title']; ?></h1>
             <div class="project-meta">
-                <span class="location"><i class="fas fa-map-marker-alt"></i> <span id="project-location">Location</span></span>
-                <span class="price"><i class="fas fa-tag"></i> Starting at <span id="project-price">$000,000</span></span>
-                <span class="status"><i class="fas fa-clock"></i> <span id="project-status">Status</span></span>
+                <span class="location"><i class="fas fa-map-marker-alt"></i> <span id="project-location"><?php echo $project['location']; ?></span></span>
+                <span class="price"><i class="fas fa-tag"></i> Starting at <span id="project-price"><?php echo $project['price']; ?></span></span>
+                <span class="status"><i class="fas fa-clock"></i> <span id="project-status"><?php echo $project['status']; ?></span></span>
             </div>
         </div>
 
         <div class="project-gallery">
             <div class="main-image">
-                <img id="main-project-image" src="/api/placeholder/800/500" alt="Project Main Image">
+                <img id="main-project-image" src="<?php echo $project['image']; ?>" alt="<?php echo $project['title']; ?>">
             </div>
             <!-- <div class="thumbnail-gallery">
                 <img class="thumbnail active" src="/api/placeholder/150/100" alt="Thumbnail 1" onclick="changeMainImage(this.src)">
@@ -93,15 +93,14 @@ $project = $projects[$projectKey];
         <div class="project-content">
             <div class="project-description">
                 <h2>About This Project</h2>
-                <p id="project-description">Detailed description of the project will appear here. This section will include information about the property's features, amenities, and unique selling points.</p>
+                <p id="project-description"><?php echo $project['description']; ?></p>
                 
                 <div class="project-highlights">
                     <h3>Project Highlights</h3>
                     <ul id="project-highlights-list">
-                        <li><i class="fas fa-check-circle"></i> Highlight 1</li>
-                        <li><i class="fas fa-check-circle"></i> Highlight 2</li>
-                        <li><i class="fas fa-check-circle"></i> Highlight 3</li>
-                        <li><i class="fas fa-check-circle"></i> Highlight 4</li>
+                        <?php foreach ($project['highlights'] as $highlight): ?>
+                        <li><i class="fas fa-check-circle"></i> <?php echo $highlight; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -110,11 +109,11 @@ $project = $projects[$projectKey];
                 <div class="key-details">
                     <h3>Key Details</h3>
                     <ul>
-                        <li><span>Property Type:</span> <span id="property-type">Residential</span></li>
-                        <li><span>Total Area:</span> <span id="total-area">0,000 sq.ft</span></li>
-                        <li><span>Year Built:</span> <span id="year-built">2024</span></li>
-                        <li><span>Total Units:</span> <span id="total-units">00</span></li>
-                        <li><span>Amenities:</span> <span id="amenities">Pool, Gym, Garden</span></li>
+                        <li><span>Property Type:</span> <span id="property-type"><?php echo $project['propertyType']; ?></span></li>
+                        <li><span>Total Area:</span> <span id="total-area"><?php echo $project['totalArea']; ?></span></li>
+                        <li><span>Year Built:</span> <span id="year-built"><?php echo $project['yearBuilt']; ?></span></li>
+                        <li><span>Total Units:</span> <span id="total-units"><?php echo $project['totalUnits']; ?></span></li>
+                        <li><span>Amenities:</span> <span id="amenities"><?php echo $project['amenities']; ?></span></li>
                     </ul>
                 </div>
                 

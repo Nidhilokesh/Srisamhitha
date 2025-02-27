@@ -426,3 +426,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get project data from PHP
+    const projectTitle = document.getElementById('project-title');
+    const projectLocation = document.getElementById('project-location');
+    const projectPrice = document.getElementById('project-price');
+    const projectStatus = document.getElementById('project-status');
+    const mainProjectImage = document.getElementById('main-project-image');
+    const projectDescription = document.getElementById('project-description');
+    const projectHighlightsList = document.getElementById('project-highlights-list');
+    const propertyType = document.getElementById('property-type');
+    const totalArea = document.getElementById('total-area');
+    const yearBuilt = document.getElementById('year-built');
+    const totalUnits = document.getElementById('total-units');
+    const amenities = document.getElementById('amenities');
+    
+    // Function to populate the project details from PHP
+    function populateProjectDetails() {
+        // The PHP data is already embedded in the page when it's served
+        // This is handled by your PHP code that accesses the $project variable
+        
+        // If you want to simulate what the PHP would do, you could do this:
+        // (but this should be unnecessary if PHP is working correctly)
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectKey = urlParams.get('project');
+        
+        console.log("Loading project: " + projectKey);
+        
+        // This is just for debugging - your PHP should already handle this
+        if (!projectKey) {
+            console.error("No project parameter in URL");
+        }
+    }
+    
+    // Initialize the page
+    populateProjectDetails();
+    
+    // Function to change main image (for thumbnail gallery if you uncomment it)
+    window.changeMainImage = function(src) {
+        mainProjectImage.src = src;
+        // Update active thumbnail
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.classList.remove('active');
+            if (thumb.src === src) {
+                thumb.classList.add('active');
+            }
+        });
+    };
+});
