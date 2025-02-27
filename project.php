@@ -1,4 +1,73 @@
 <?php include 'includes/header.php'; ?>
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Adjust path if needed
+
+$alertMessage = ""; // Variable to store JavaScript alert message
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstName = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $message = htmlspecialchars($_POST['message']);
+
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP Server Settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'mstrupthi@gmail.com'; // Your Gmail
+        $mail->Password = 'barg jdju doyc fgml'; // Your Gmail App Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
+
+        // Sender & Recipient
+        $mail->setFrom($email, $name);
+        $mail->addAddress('mstrupthi@gmail.com'); // Receiver's email
+
+        // Email Content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Contact Form Submission';
+        $mail->Body = "
+            <h2>Contact Form Submission</h2>
+            <p><strong>Name:</strong> $firstName</p>
+            <p><strong>Message:</strong> $lastName</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Phone:</strong> $phone</p>
+            <p><strong>Message:</strong> $message</p>
+        ";
+
+        // Send Email
+        $mail->send();
+        $alertMessage = "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Message Sent!',
+                    text: 'Your message has been sent successfully.',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>";
+    } catch (Exception $e) {
+        $alertMessage = "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Message Not Sent',
+                    text: 'Error: {$mail->ErrorInfo}',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        </script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +131,7 @@
             <h2>Let's Connect</h2>
             <p>Get in touch with us for all your real estate needs. Whether you're looking to buy, sell, or rent properties.</p>
             
-            <form id="contactForm" class="contact-form">
+            <!-- <form id="contactForm" class="contact-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
@@ -90,7 +159,36 @@
                 <div class="form-group"> 
                     <button type="submit" class="submit-btn">Send Message</button>
                 </div>
-            </form>
+            </form> -->
+            <form action="project.php" method="POST" id="contactForm" class="contact-form">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <div class="form-group"> 
+        <button type="submit" class="submit-btn">Send Message</button>
+    </div>
+</form>
         </section>
 
         <section class="cta-section">

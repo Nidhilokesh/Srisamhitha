@@ -1,66 +1,4 @@
-// // Filter buttons functionality
-// const filterBtns = document.querySelectorAll('.filter-btn');
-// filterBtns.forEach(btn => {
-//     btn.addEventListener('click', () => {
-//         filterBtns.forEach(b => b.classList.remove('active'));
-//         btn.classList.add('active');
-//     });
-// });
 
-// // Search functionality
-// const searchBar = document.querySelector('.search-bar');
-// const projectCards = document.querySelectorAll('.project-card');
-
-// searchBar.addEventListener('input', (e) => {
-//     const searchTerm = e.target.value.toLowerCase();
-//     projectCards.forEach(card => {
-//         const title = card.querySelector('h3').textContent.toLowerCase();
-//         const description = card.querySelector('p').textContent.toLowerCase();
-        
-//         if (title.includes(searchTerm) || description.includes(searchTerm)) {
-//             card.style.display = 'block';
-//         } else {
-//             card.style.display = 'none';
-//         }
-//     });
-// });
-
-// // Form submission
-// const form = document.querySelector('.connect-form');
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     // Add your form submission logic here
-//     alert('Thank you for your message! We will get back to you soon.');
-//     form.reset();
-// });
-// // Animate project cards on scroll
-// function animateOnScroll() {
-//     const cards = document.querySelectorAll('.project-card');
-//     const observer = new IntersectionObserver((entries) => {
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-//                 entry.target.style.opacity = '1';
-//                 entry.target.style.transform = 'translateY(0)';
-//             }
-//         });
-//     }, { threshold: 0.1 });
-
-//     cards.forEach(card => {
-//         card.style.opacity = '0';
-//         card.style.transform = 'translateY(20px)';
-//         observer.observe(card);
-//     });
-// }
-
-// // Smooth scroll functionality
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-// });
 
 // Enhanced filter buttons functionality
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -113,9 +51,9 @@ searchBar.addEventListener('input', (e) => {
 });
 
 // Enhanced form submission with validation
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// const form = document.querySelector('.contact-form');
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
     
     // Basic form validation
     const inputs = form.querySelectorAll('input, textarea');
@@ -152,7 +90,7 @@ form.addEventListener('submit', async (e) => {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Message';
     }
-});
+
 
 // Shake animation for invalid inputs
 function shake(element) {
@@ -164,4 +102,73 @@ function shake(element) {
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
+});
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Basic validation
+    if (!firstName || !lastName || !email || !phone || !message) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Missing Information',
+            text: 'Please fill in all fields.',
+        });
+        return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Email',
+            text: 'Please enter a valid email address.',
+        });
+        return;
+    }
+
+    // Phone validation (allows digits, spaces, dashes, and optional + at the start)
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!phoneRegex.test(phone)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Phone Number',
+            text: 'Please enter a valid phone number.',
+        });
+        return;
+    }
+ // AJAX request to submit the form data
+ let formData = new FormData(document.getElementById('contactForm'));
+    
+ fetch('contact.php', {
+     method: 'POST',
+     body: formData
+ })
+ .then(response => response.json())
+ .then(data => {
+     Swal.fire({
+         icon: data.status === 'success' ? 'success' : 'error',
+         title: data.status === 'success' ? 'Message Sent!' : 'Error',
+         text: data.message,
+     }).then(() => {
+         if (data.status === 'success') {
+             document.getElementById('contactForm').reset();
+         }
+     });
+ })
+ .catch(error => {
+     console.error('Error:', error);
+     Swal.fire({
+         icon: 'error',
+         title: 'Something went wrong!',
+         text: 'Please try again later.',
+     });
+ });
 });

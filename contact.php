@@ -2,7 +2,10 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'vendor/autoload.php'; // Ensure PHPMailer is installed via Composer
+
+require 'vendor/autoload.php'; // Adjust path if needed
+
+$alertMessage = ""; // Variable to store JavaScript alert message
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = htmlspecialchars($_POST['firstName']);
@@ -14,34 +17,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Server settings
+        // SMTP Server Settings
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'mstrupthi@gmail.com'; // Your Gmail address
-        $mail->Password = 'barg jdju doyc fgml'; // Use App Password here
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-        $mail->Port = 587; 
+        $mail->Username = 'mstrupthi@gmail.com'; // Your Gmail
+        $mail->Password = 'barg jdju doyc fgml'; // Your Gmail App Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
 
-        // Recipients
-        $mail->setFrom($email, "$firstName $lastName");
-        $mail->addAddress('mstrupthi@gmail.com'); // Change to your recipient email
+        // Sender & Recipient
+        $mail->setFrom($email, $name);
+        $mail->addAddress('mstrupthi@gmail.com'); // Receiver's email
 
-        // Content
+        // Email Content
         $mail->isHTML(true);
-        $mail->Subject = "New Contact Form Submission from $firstName $lastName";
+        $mail->Subject = 'New Contact Form Submission';
         $mail->Body = "
             <h2>Contact Form Submission</h2>
-            <p><strong>Name:</strong> $firstName $lastName</p>
+            <p><strong>Name:</strong> $firstName</p>
+            <p><strong>Message:</strong> $lastName</p>
             <p><strong>Email:</strong> $email</p>
             <p><strong>Phone:</strong> $phone</p>
-            <p><strong>Message:</strong><br>$message</p>
+            <p><strong>Message:</strong> $message</p>
         ";
 
+        // Send Email
         $mail->send();
-        echo "success"; // Response for AJAX
+        $alertMessage = "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Message Sent!',
+                    text: 'Your message has been sent successfully.',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>";
     } catch (Exception $e) {
-        echo "Mailer Error: {$mail->ErrorInfo}";
+        $alertMessage = "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Message Not Sent',
+                    text: 'Error: {$mail->ErrorInfo}',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        </script>";
     }
 }
 ?>
@@ -115,8 +138,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="contact-section">
             <h2>Let's Connect</h2>
             <p>Get in touch with us for all your real estate needs. Whether you're looking to buy, sell, or rent properties.</p>
-            
-            <form id="contactForm" class="contact-form">
+             
+            <form action="contact.php" method="POST" id="contactForm" class="contact-form">
     <div class="form-row">
         <div class="form-group">
             <label for="firstName">First Name</label>
@@ -174,13 +197,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'includes/footer.php'; ?>
 
     <script src="../javascript/contact.js"></script>
-    <form id="contactForm">
-        <input type="text" name="firstName" placeholder="First Name" required>
-        <input type="text" name="lastName" placeholder="Last Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="phone" placeholder="Phone" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
 </body>
 </html>
