@@ -2,10 +2,7 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-require 'PHPMailer/Exception.php';
+require 'vendor/autoload.php'; // Ensure PHPMailer is installed via Composer
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = htmlspecialchars($_POST['firstName']);
@@ -22,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'mstrupthi@gmail.com'; // Your Gmail address
-        $mail->Password = 'trupthims776'; // Use App Password here
+        $mail->Password = 'barg jdju doyc fgml'; // Use App Password here
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mail->Port = 587; 
 
@@ -120,34 +117,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Get in touch with us for all your real estate needs. Whether you're looking to buy, sell, or rent properties.</p>
             
             <form id="contactForm" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" required></textarea>
-                </div>
-                <div class="form-group"> 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </div>
-            </form>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+    <div class="form-group"> 
+        <button type="submit" class="submit-btn">Send Message</button>
+    </div>
+</form>
         </section>
 
         <!-- Map Section -->
