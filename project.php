@@ -96,33 +96,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
 
         <div class="projects-grid">
+            <!-- Project 1 -->
             <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Modern Villa" class="project-image">
+                <img src="images/parkview.jpg" alt="Park-view Layout" class="project-image">
                 <div class="project-info">
                     <h3>Park-view Layout</h3>
                     <p>Luxury villa with modern amenities</p>
-                    <a href="project-details.php?id=1" class="view-project-btn">View Project Details</a>
-                    <button class="view-project-btn">View Project Details</button>
+                    <a href="project-details.php?project=parkview">
+                        <button class="view-project-btn">View Project Details</button>
+                    </a>
                 </div>
             </div>
 
+            <!-- Project 2 -->
             <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Downtown Towers" class="project-image">
+                <img src="images/beachview.jpg" alt="Beachview Layout" class="project-image">
                 <div class="project-info">
                     <h3>Beachview Layout</h3>
                     <p>Premium apartments in the heart of the city</p>
-                    <a href="project-details.php?id=2" class="view-project-btn">View Project Details</a>
-                    <button class="view-project-btn">View Project Details</button>
+                    <a href="project-details.php?project=beachview">
+                        <button class="view-project-btn">View Project Details</button>
+                    </a>
                 </div>
             </div>
 
+            <!-- Project 3 -->
             <div class="project-card">
-                <img src="/api/placeholder/400/320" alt="Skyline Penthouses" class="project-image">
+                <img src="images/skyline.jpg" alt="Skyline Penthouses" class="project-image">
                 <div class="project-info">
                     <h3>Skyline Penthouses</h3>
                     <p>Exclusive penthouses with panoramic views</p>
-                    <a href="project-details.php?id=2" class="view-project-btn">View Project Details</a>
-                    <button class="view-project-btn">View Project Details</button>
+                    <a href="project-details.php?project=skyline">
+                        <button class="view-project-btn">View Project Details</button>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,3 +1,61 @@
+<?php
+// Define project details
+$projects = [
+    "parkview" => [
+        "title" => "Park-view Layout",
+        "location" => "Downtown City",
+        "price" => "$500,000",
+        "status" => "Available",
+        "image" => "images/parkview.jpg",
+        "description" => "A luxury villa offering modern amenities and spacious living.",
+        "highlights" => ["Spacious Living Area", "Private Pool", "Modern Interiors", "24/7 Security"],
+        "propertyType" => "Villa",
+        "totalArea" => "4,000 sq.ft",
+        "yearBuilt" => "2022",
+        "totalUnits" => "50",
+        "amenities" => "Pool, Gym, Garden",
+    ],
+    "beachview" => [
+        "title" => "Beachview Layout",
+        "location" => "Seaside Avenue",
+        "price" => "$750,000",
+        "status" => "Under Construction",
+        "image" => "images/beachview.jpg",
+        "description" => "Premium apartments located near the beach, offering stunning views.",
+        "highlights" => ["Sea View", "Private Balcony", "Modern Gym", "High-Speed Elevators"],
+        "propertyType" => "Apartment",
+        "totalArea" => "2,500 sq.ft",
+        "yearBuilt" => "2023",
+        "totalUnits" => "120",
+        "amenities" => "Pool, Gym, Beach Access",
+    ],
+    "skyline" => [
+        "title" => "Skyline Penthouses",
+        "location" => "City Center",
+        "price" => "$1,200,000",
+        "status" => "Available",
+        "image" => "images/skyline.jpg",
+        "description" => "Exclusive penthouses offering a breathtaking skyline view.",
+        "highlights" => ["Sky Lounge", "Private Elevator", "Luxury Interiors", "Smart Home Features"],
+        "propertyType" => "Penthouse",
+        "totalArea" => "5,500 sq.ft",
+        "yearBuilt" => "2021",
+        "totalUnits" => "30",
+        "amenities" => "Pool, Gym, Concierge, Rooftop Garden",
+    ],
+];
+
+// Get the project identifier from the URL
+$projectKey = $_GET['project'] ?? null;
+
+// Check if the project exists
+if (!isset($projects[$projectKey])) {
+    echo "<h2>Project Not Found</h2>";
+    exit;
+}
+
+$project = $projects[$projectKey];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +82,12 @@
             <div class="main-image">
                 <img id="main-project-image" src="/api/placeholder/800/500" alt="Project Main Image">
             </div>
-            <div class="thumbnail-gallery">
+            <!-- <div class="thumbnail-gallery">
                 <img class="thumbnail active" src="/api/placeholder/150/100" alt="Thumbnail 1" onclick="changeMainImage(this.src)">
                 <img class="thumbnail" src="/api/placeholder/150/100" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
                 <img class="thumbnail" src="/api/placeholder/150/100" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
                 <img class="thumbnail" src="/api/placeholder/150/100" alt="Thumbnail 4" onclick="changeMainImage(this.src)">
-            </div>
+            </div> -->
         </div>
 
         <div class="project-content">
@@ -60,7 +118,7 @@
                     </ul>
                 </div>
                 
-                <div class="inquiry-form">
+                <!-- <div class="inquiry-form">
                     <h3>Interested in this Project?</h3>
                     <form id="project-inquiry-form">
                         <div class="form-group">
@@ -77,7 +135,7 @@
                         </div>
                         <button type="submit" class="submit-btn">Request Details</button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
         

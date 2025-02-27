@@ -1,14 +1,15 @@
 /* Project Details Page Styles */
 :root {
-    --primary-color: #ffd700;
-    --secondary-color: #333;
+    --primary-color: #fff;
+    --secondary-color: #1a1a1a;
     --accent-color: #4a90e2;
-    --text-color: #333;
-    --light-gray: #f5f5f5;
-    --medium-gray: #e0e0e0;
-    --dark-gray: #777;
+    --text-color: #ddd;
+    --background-color: #111;
+    --light-gray: #222;
+    --medium-gray: #444;
+    --dark-gray: #888;
     --white: #fff;
-    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
     --transition: all 0.3s ease;
 }
 
@@ -16,7 +17,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-gray);
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
 }
@@ -25,7 +26,7 @@ body {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 20px;
-    background-color: var(--white);
+    background-color: var(--light-gray);
     border-radius: 8px;
     box-shadow: var(--box-shadow);
     overflow: hidden;
@@ -36,6 +37,7 @@ body {
     padding: 2rem;
     border-bottom: 1px solid var(--medium-gray);
     background-color: var(--white);
+    margin-top: 5rem;
 }
 
 .project-header h1 {
@@ -257,7 +259,7 @@ body {
 .project-features h2 {
     text-align: center;
     margin-top: 0;
-    color: var(--secondary-color);
+    color: #fff;
     position: relative;
 }
 
@@ -295,13 +297,13 @@ body {
 
 .feature-item i {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: #ffd300;
     margin-bottom: 1rem;
 }
 
 .feature-item h4 {
     margin: 0 0 0.5rem 0;
-    color: var(--secondary-color);
+    color: #fff;
 }
 
 .feature-item p {
@@ -351,7 +353,7 @@ body {
 
 .nearby-places h3 {
     margin-top: 0;
-    color: var(--secondary-color);
+    color: #fff;
 }
 
 .nearby-places ul {
@@ -426,7 +428,7 @@ body {
 
 .similar-project-card h4 {
     margin: 1rem 1rem 0.5rem;
-    color: var(--secondary-color);
+    color: #fff;
 }
 
 .similar-project-card p {
@@ -436,7 +438,7 @@ body {
 
 .view-btn {
     background-color: var(--light-gray);
-    color: var(--secondary-color);
+    color: #fff;
     border: none;
     padding: 0.5rem 1rem;
     margin: 0 1rem 1rem;
@@ -563,5 +565,73 @@ body {
     
     .project-features {
         margin: 0 1.5rem 1.5rem;
+    }
+}
+.project-header, .project-gallery, .project-content, .project-features, .location-section, .similar-projects {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    padding: 2rem;
+}
+
+.project-header h1, .project-description h2, .project-highlights h3, .key-details h3, .location-section h2, .similar-projects h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.project-meta i, .project-highlights-list i, .nearby-places i {
+    color: var(--primary-color);
+}
+
+.thumbnail:hover, .thumbnail.active {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.feature-item, .similar-project-card {
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+}
+
+.feature-item:hover, .similar-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+}
+
+.cta-section {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
+.cta-btn.primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.cta-btn.secondary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-btn.primary:hover {
+    background-color: #e6c200;
+}
+
+.cta-btn.secondary:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+@media screen and (max-width: 992px) {
+    .features-grid,
+    .similar-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .features-grid,
+    .similar-projects-grid {
+        grid-template-columns: 1fr;
     }
 }
