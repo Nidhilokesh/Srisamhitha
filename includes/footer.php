@@ -30,7 +30,7 @@ function renderFooter() {
                 <h3>Information</h3>
                 <ul class="footer-links">
                 <li><a href="../index.php" class="<?php echo isActive('index.php'); ?>">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="../index.php#about">About Us</a></li>
                 <li><a href="../project.php" class="<?php echo isActive('project.php'); ?>">Projects</a></li>
                 <li><a href="../gallery.php" class="<?php echo isActive('gallery.php'); ?>">Gallery</a></li>
                 <li><a href="../contact.php" class="<?php echo isActive('contact.php'); ?>">Contact Us</a></li>

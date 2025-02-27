@@ -101,6 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="project-info">
                     <h3>Park-view Layout</h3>
                     <p>Luxury villa with modern amenities</p>
+                    <a href="project-details.php?id=1" class="view-project-btn">View Project Details</a>
                     <button class="view-project-btn">View Project Details</button>
                 </div>
             </div>
@@ -110,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="project-info">
                     <h3>Beachview Layout</h3>
                     <p>Premium apartments in the heart of the city</p>
+                    <a href="project-details.php?id=2" class="view-project-btn">View Project Details</a>
                     <button class="view-project-btn">View Project Details</button>
                 </div>
             </div>
@@ -119,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="project-info">
                     <h3>Skyline Penthouses</h3>
                     <p>Exclusive penthouses with panoramic views</p>
+                    <a href="project-details.php?id=2" class="view-project-btn">View Project Details</a>
                     <button class="view-project-btn">View Project Details</button>
                 </div>
             </div>
