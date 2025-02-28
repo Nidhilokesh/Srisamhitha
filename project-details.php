@@ -70,7 +70,7 @@ $project = $projects[$projectKey];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($project['title']); ?> - Project Details</title>
     <!-- Add fallback inline styles in case the CSS file isn't loading -->
-    <style>
+    <!-- <style>
         /* Base styles */
         * {
             margin: 0;
@@ -196,38 +196,55 @@ $project = $projects[$projectKey];
             margin-right: 10px;
         }
         
-        .project-sidebar {
+        /* .project-sidebar {
             width: 100%;
             background: #fff;
             border-radius: 5px;
             padding: 1px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         
+        } */
+      /* Sidebar */
+        .project-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
-        
+
+        .key-details {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .key-details h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
         .key-details ul {
             list-style: none;
-            width: 100%; /* Expands to full width */
-            max-width: 350px; /* Adjust as needed */
-            padding: 10px;
+            padding: 0;
+            margin: 0;
         }
-        
+
         .key-details li {
+            margin-bottom: 0.8rem;
             display: flex;
-            flex-wrap: wrap; /* Ensures content wraps properly */
             justify-content: space-between;
-            align-items: center; /* Aligns items vertically */
-            padding: 5px 10px; /* Increases padding for better spacing */
-            border-bottom: 1px solid #eee;
-            word-break: break-word; /* Prevents text overflow */
-            width: 100%; /* Adjust width */
-            max-width: 300px; /* Set a maximum width */
-           
+            border-bottom: 1px dashed var(--medium-gray);
+            padding-bottom: 0.5rem;
         }
-        
+
         .key-details li:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
+
         
         .project-features {
             margin-bottom: 40px;
@@ -492,7 +509,7 @@ $project = $projects[$projectKey];
                 flex-direction: column;
             }
         }
-    </style>
+    </style> -->
     <link rel="stylesheet" href="../css/project-details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
