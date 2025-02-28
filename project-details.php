@@ -497,7 +497,7 @@ $project = $projects[$projectKey];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <?php include 'includes/header2.php'; ?>
+    <?php include 'includes/header.php'; ?>
     
     <div class="project-details-container">
         <div class="project-header">
