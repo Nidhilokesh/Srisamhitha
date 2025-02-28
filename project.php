@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port = 465;
 
         // Sender & Recipient
-        $mail->setFrom($email, $name);
+        $mail->setFrom($email, $firstName . ' ' . $lastName);
         $mail->addAddress('mstrupthi@gmail.com'); // Receiver's email
 
         // Email Content
@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Subject = 'New Contact Form Submission';
         $mail->Body = "
             <h2>Contact Form Submission</h2>
-            <p><strong>Name:</strong> $firstName</p>
-            <p><strong>Message:</strong> $lastName</p>
+            <p><strong>First Name:</strong> $firstName</p>
+            <p><strong>Last Name:</strong> $lastName</p>
             <p><strong>Email:</strong> $email</p>
             <p><strong>Phone:</strong> $phone</p>
             <p><strong>Message:</strong> $message</p>
@@ -76,8 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Real Estate Projects</title>
     <link rel="stylesheet" href="../css/project.css">
     <!-- <link rel="stylesheet" href="../css/contact.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+    <?php echo $alertMessage; // Output alert message if set ?>
     <div class="container">
         <header class="header">
             <h1>Find our Projects</h1>
@@ -86,21 +88,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <section class="search-section">
             <input type="text" class="search-bar" placeholder="Search for projects...">
-            <div class="filters">
+            <!-- <div class="filters">
                 <button class="filter-btn active">Popular</button>
                 <button class="filter-btn">Recent Sales</button>
                 <button class="filter-btn">Recent Views</button>
                 <button class="filter-btn">Top Rated</button>
                 <button class="filter-btn">Featured</button>
-            </div>
+            </div> -->
         </section>
 
         <div class="projects-grid">
             <!-- Project 1 -->
             <div class="project-card">
-                <img src="images/parkview.jpg" alt="Park-view Layout" class="project-image">
+                <img src="../assets/images/sarayu.jpg" alt="Ssarayu-image" class="project-image">
                 <div class="project-info">
-                    <h3>Park-view Layout</h3>
+                    <h3>Sarayu Encalve</h3>
                     <p>Luxury villa with modern amenities</p>
                     <a href="project-details.php?project=parkview">
                         <button class="view-project-btn">View Project Details</button>
@@ -133,77 +135,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     
-    
-
         <!-- Contact Form -->
         <section class="contact-section">
             <h2>Let's Connect</h2>
             <p>Get in touch with us for all your real estate needs. Whether you're looking to buy, sell, or rent properties.</p>
             
-            <!-- <form id="contactForm" class="contact-form">
+            <form action="project.php" method="POST" id="contactForm" class="contact-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" required>
+                        <input type="text" id="firstName" name="firstName" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" required>
+                        <input type="text" id="lastName" name="lastName" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" required>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <div class="form-group"> 
                     <button type="submit" class="submit-btn">Send Message</button>
                 </div>
-            </form> -->
-            <form action="project.php" method="POST" id="contactForm" class="contact-form">
-    <div class="form-row">
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-    <div class="form-group"> 
-        <button type="submit" class="submit-btn">Send Message</button>
-    </div>
-</form>
+            </form>
         </section>
 
         <section class="cta-section">
             <h2>Start Your Real Estate Journey Today</h2>
             <p>Let us help you find your dream property</p>
-            <button class="cta-btn">Contact Us Now</button>
+                <a href="contact.php" class="explore-btn" id="exploreBtn">Contact Us</a>
+                <script>
+                    document.getElementById("exploreBtn").addEventListener("click", function () {
+                    window.location.href = "contact.php";
+                });
+                </script>
         </section>
     </div>
     <?php include 'includes/footer.php'; ?>

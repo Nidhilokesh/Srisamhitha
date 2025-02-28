@@ -30,9 +30,8 @@ function renderFooter() {
                 <h3>Information</h3>
                 <ul class="footer-links">
                 <li><a href="../index.php" class="<?php echo isActive('index.php'); ?>">Home</a></li>
-                <li><a href="../index.php#about">About Us</a></li>
+                <!-- <li><a href="../index.php#about">About Us</a></li> -->
                 <li><a href="../project.php" class="<?php echo isActive('project.php'); ?>">Projects</a></li>
-                <li><a href="../gallery.php" class="<?php echo isActive('gallery.php'); ?>">Gallery</a></li>
                 <li><a href="../contact.php" class="<?php echo isActive('contact.php'); ?>">Contact Us</a></li>
                 </ul>
             </div>
@@ -43,13 +42,19 @@ function renderFooter() {
             <div class="footer-section">
                 <h3>Contacts</h3>
                 <div class="contact-info">
-                    <i class="fas fa-map-marker-alt"></i> 1234 Sample Street, Austin TX 78681
+                    <i class="fas fa-map-marker-alt"></i> 
+                    <a href="https://www.google.com/maps/place/15%C2%B008'48.3%22N+76%C2%B056'45.5%22E/@15.1467586,76.9434,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.1467586!4d76.9459749" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        Sri Samhitha, Patel Nagar, Ballari
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i> +91 93530 77899
                 </div>
                 <div class="contact-info">
-                    <i class="fas fa-phone-alt"></i> 512.333.2222
-                </div>
-                <div class="contact-info">
-                    <i class="fas fa-envelope"></i> <a href="mailto:sampleemail@gmail.com">sampleemail@gmail.com</a>
+                    <i class="fas fa-envelope"></i> <a href="mailto:srisamhithaenterprises1234@gmail.com">srisamhithaenterprises1234@gmail.com</a>
                 </div>
             </div>
 

@@ -882,7 +882,7 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 .explore-btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #6c63ff;
+    background-color: #ffd700;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -894,7 +894,7 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .explore-btn:hover {
-    background-color: #5a52e0;
+    background-color: #ffd700;
     transform: translateY(-2px);
 }
 

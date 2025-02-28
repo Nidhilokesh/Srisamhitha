@@ -1,4 +1,4 @@
-/* Project Details Page Styles */
+
 :root {
     --primary-color: #fff;
     --secondary-color: #1a1a1a;
@@ -635,3 +635,5 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+

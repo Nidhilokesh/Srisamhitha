@@ -13,15 +13,15 @@
             <h1 class="hero-title">Built on dreams, driven by excellence</h1>
             <div class="stats-container">
                 <div class="stat-card">
-                    <div class="stat-number">200+</div>
+                    <div class="stat-number">300+</div>
                     <div class="stat-text">Happy Customers</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">10k+</div>
+                    <div class="stat-number">5+</div>
                     <div class="stat-text">Properties for clients</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">16+</div>
+                    <div class="stat-number">6+</div>
                     <div class="stat-text">Years of Experience</div>
                 </div>
             </div>
@@ -132,20 +132,22 @@
         <div class="about-container">
             <div class="image-grid">
                 <div class="image-item">
-                    <img src="../assets/images/Modern building top view.png" alt="Aerial view of a modern building">
+                    <img src="../assets/images/about1.jpg" alt="Aerial view of a modern building">
                 </div>
                 <div class="image-item large">
-                    <img src="../assets/images/Tall modern building.png" alt="Tall contemporary building">
+                    <img src="../assets/images/about2.jpg" alt="Tall contemporary building">
                 </div>
                 <div class="image-item">
-                    <img src="../assets/images/Architecture detail.png" alt="Detailed architectural design">
+                    <img src="../assets/images/about3.jpg" alt="Detailed architectural design">
                 </div>
             </div>
             <div class="about-content">
                 <h2>About Us</h2>
                 <div class="about-text">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <p>Welcome to Sri Samhitha Enterprises, where innovation meets excellence in real estate development and many other requirements. We are dedicated to crafting premium residential and commercial spaces that redefine luxury and comfort. With a focus on quality, transparency, and customer satisfaction, we aim to provide world-class living environments.
+                        Our mission is to create thoughtfully designed real estate projects that offer both aesthetic appeal and functional value. We are committed to delivering top-tier infrastructure and modern amenities to enhance our customers’ lifestyles.
+                        Our vision is to set new benchmarks in the real estate industry by integrating cutting-edge technology and sustainable building practices. We strive to build vibrant communities that stand the test of time.
+                    </p>
                 </div>
             </div>
         </div>
@@ -256,7 +258,13 @@
                 <h1>Start your real estate journey today</h1>
                 <div class="text-button-wrapper">
                     <p>Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, Estatein is here to assist you every step of the way. Explore our properties or get in touch for personalized assistance.</p>
-                    <a href="#" class="explore-btn" id="exploreBtn">Explore Properties</a>
+                    <a href="project.php" class="explore-btn" id="exploreBtn">Explore Properties</a>
+                    <script>
+                        document.getElementById("exploreBtn").addEventListener("click", function () {
+                            window.location.href = "project.php";
+                        });
+                    </script>
+
                 </div>
             </div>
         </div>

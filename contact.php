@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header2.php'; ?>
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -187,11 +187,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
 
         <!-- CTA Section -->
-        <section class="cta-section">
+        <!-- <section class="cta-section">
             <h2>Start Your Real Estate Journey Today</h2>
             <p>Connect with our expert team to explore the best property options that suit your needs.</p>
             <button class="cta-button">Schedule a Call</button>
-        </section>
+        </section> -->
     </main>
 
     <?php include 'includes/footer.php'; ?>
