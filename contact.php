@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Contact Header -->
         <section class="contact-header">
             <h1>Get in Touch with Sri Samhitha</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+            <p>Have Questions? We're Here to Help! Reach out to us for expert guidance, personalized support, and seamless solutions to meet your needs.</p>
         </section>
 
         <!-- Contact Features -->
@@ -115,22 +115,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="feature">
                 <i class="fas fa-phone"></i>
                 <h3>Call Us</h3>
-                <p>+1 234 567 890</p>
+                <p><a href="tel:+91 93530 77899" style="text-decoration: none; color: inherit;">+91 93530 77899</a></p>
             </div>
+
             <div class="feature">
                 <i class="fas fa-envelope"></i>
                 <h3>Drop Us a Line</h3>
-                <p>info@example.com</p>
+                <p>
+                    <a href="mailto:srisamhithaenterprises1234@gmail.com">srisamhithaenterprises1234@gmail.com</a>
+                </p>
             </div>
+
             <div class="feature">
                 <i class="fas fa-clock"></i>
                 <h3>Working Hours</h3>
-                <p>Mon-Sat: 9AM to 6PM</p>
+                <p>Mon-Fri: 10AM to 5PM</p>
             </div>
             <div class="feature">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Location</h3>
-                <p>123 Street, City</p>
+                <p>
+                    <a href="https://www.google.com/maps/place/15%C2%B008'48.3%22N+76%C2%B056'45.5%22E/@15.1467586,76.9434,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.1467586!4d76.9459749" 
+                    target="_blank" 
+                    style="text-decoration: none; color: inherit;">
+                        Patel Nagar, Ballari
+                    </a>
+                </p>
             </div>
         </section>
 
@@ -172,11 +182,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Map Section -->
         <section class="map-section">
-            <h2>Discover Our Office Locations</h2>
+            <h2>Discover Our Office Location</h2>
             <p>Visit us at our office locations across the city. We're here to serve you better.</p>
             <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1234.5678!2d-123.456789!3d12.345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDIwJzQ0LjQiTiAxMjPCsDI3JzI0LjQiVw!5e0!3m2!1sen!2sus!4v1234567890" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d983.2203414489636!2d76.9459749!3d15.1467586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA4JzQ4LjMiTiA3NsKwNTYnNDUuNSJF!5e0!3m2!1sen!2sin!4v1700000000000" 
                     width="100%" 
                     height="450" 
                     style="border:0; border-radius:10px; max-width: 100%;" 

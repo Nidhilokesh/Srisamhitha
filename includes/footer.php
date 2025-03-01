@@ -22,7 +22,7 @@ function renderFooter() {
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="../assets/images/logo2.jpg" alt="Sri Samhitha Enterprises Logo">
-                <h2 class="company-name">SRI SAMHITHA</h2>
+                <h3 class="company-name">SRI SAMHITHA</h3>
                 <p class="company-subtext">ENTERPRISES</p>
             </div>
 
@@ -51,8 +51,12 @@ function renderFooter() {
                 </div>
 
                 <div class="contact-info">
-                    <i class="fas fa-phone-alt"></i> +91 93530 77899
+                    <i class="fas fa-phone-alt"></i> 
+                    <a href="tel:+919353077899" style="text-decoration: none; color: inherit;">
+                        +91 93530 77899
+                    </a>
                 </div>
+
                 <div class="contact-info">
                     <i class="fas fa-envelope"></i> <a href="mailto:srisamhithaenterprises1234@gmail.com">srisamhithaenterprises1234@gmail.com</a>
                 </div>
