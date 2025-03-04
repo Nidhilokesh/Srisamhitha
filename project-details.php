@@ -198,7 +198,7 @@ $project = $projects[$projectKey];
                         <div class="location-content">
                             <div class="map-container">
                                 <iframe 
-                                    src="[https://www.google.com/maps?q=15.139583,76.959889](https://www.google.com/maps?q=15.139583,76.959889)"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d983.2203414489636!2d76.9459749!3d15.1467586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA4JzQ4LjMiTiA3NsKwNTYnNDUuNSJF!5e0!3m2!1sen!2sin!4v1700000000000"
                                     width="100%" 
                                     height="450" 
                                     style="border:0; border-radius:10px; max-width: 100%;" 

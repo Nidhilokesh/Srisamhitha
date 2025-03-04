@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Project 2 -->
             <div class="project-card">
-                <img src="images/beachview.jpg" alt="Brundavan Layout" class="project-image">
+                <img src="../assets/images/images.jpg" alt="Brundavan Layout" class="project-image">
                 <div class="project-info">
                     <h3>Brundavan Layout</h3>
                     <p>Premium apartments in the heart of the city</p>
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Project 3 -->
             <div class="project-card">
-                <img src="images/skyline.jpg" alt="Rock view Layout" class="project-image">
+                <img src="../assets/images/1.jpg" alt="Rock view Layout" class="project-image">
                 <div class="project-info">
                     <h3>Rock view Layout</h3>
                     <p>Exclusive penthouses with panoramic views</p>
