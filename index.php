@@ -179,49 +179,6 @@
     });
 
     </script>
-
-
-        <div class="container">
-            <div class="header">
-                <h1>Meet the Team</h1>
-                <p>At Sri Samhitha, our success is driven by the dedication and expertise of our team. Get to know the people behind our mission to make your real estate dreams a reality.</p>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="../assets/images/team1.jpg" alt="Max Mitchell - Founder">
-                    <div class="member-info">
-                        <h3>Max Mitchell</h3>
-                        <p>Founder</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="../assets/images/team2.jpg" alt="Sarah Johnson - Chief Real Estate Officer">
-                    <div class="member-info">
-                        <h3>Sarah Johnson</h3>
-                        <p>Chief Real Estate Officer</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="../assets/images/team3.jpg" alt="David Brown - Head of Property Management">
-                    <div class="member-info">
-                        <h3>David Brown</h3>
-                        <p>Head of Property Management</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="../assets/images/team4.jpg" alt="Michael Turner - Legal Counsel">
-                    <div class="member-info">
-                        <h3>Michael Turner</h3>
-                        <p>Legal Counsel</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     <script>
             document.addEventListener("DOMContentLoaded", function () {
             const teamMembers = document.querySelectorAll(".team-member");

@@ -193,12 +193,12 @@ $project = $projects[$projectKey];
                 <div class="map-container"> -->
                     <!-- Replace with an actual map integration when possible -->
                     <!-- <img src="/api/placeholder/600/300" alt="Map Location of <?php echo htmlspecialchars($project['title']); ?>" class="location-map"> -->
-                    <div class="location-section">
+                    <!-- <div class="location-section"> -->
                         <h2>Location</h2>
                         <div class="location-content">
                             <div class="map-container">
                                 <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d983.2203414489636!2d76.9459749!3d15.1467586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDA4JzQ4LjMiTiA3NsKwNTYnNDUuNSJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3851.341416495269!2d76.95731397511669!3d15.139583285413144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDA4JzIyLjUiTiA3NsKwNTcnMzUuNiJF!5e0!3m2!1sen!2sin!4v1738314716783!5m2!1sen!2sin"
                                     width="100%" 
                                     height="450" 
                                     style="border:0; border-radius:10px; max-width: 100%;" 
@@ -207,7 +207,7 @@ $project = $projects[$projectKey];
                                 </iframe>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
 
 
 
