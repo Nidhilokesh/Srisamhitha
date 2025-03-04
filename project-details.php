@@ -2,48 +2,50 @@
 // Define project details
 $projects = [
     "parkview" => [
-        "title" => "Sarayu Encalve",
-        "location" => "Downtown City",
-        "price" => "$500,000",
+        "title" => "Sarayu Enclave",
+        "location" => "Srisamhitha, Ballari",
+        // "price" => "$500,000",
         "status" => "Available",
         "image" => "../assets/images/sarayu.jpg",
-        "description" => "A luxury villa offering modern amenities and spacious living.",
-        "highlights" => ["Spacious Living Area", "Private Pool", "Modern Interiors", "24/7 Security"],
-        "propertyType" => "Villa",
-        "totalArea" => "4,000 sq.ft",
-        "yearBuilt" => "2022",
-        "totalUnits" => "50",
-        "amenities" => "Pool, Gym, Garden",
+        "description" => "Welcome to Sarayu Enclave, where innovation meets excellence in real estate development.
+         We are dedicated to crafting premium residential and commercial spaces that redefine luxury and comfort.
+          With a focus on quality, transparency, and customer satisfaction, we aim to provide world-class living environments.",
+        "highlights" => ["Underground Electrification", "Many Landscaped Features", "Well Planned Electrical and Plumbing", "24/7 Security"],
+        "propertyType" => "Layout",
+        "totalArea" => "2,83,000+ sq.ft",
+        "yearBuilt" => "2024",
+        "totalUnits" => "130+",
+        "amenities" => "Gym, Garden, Kids Play Area",
     ],
-    "beachview" => [
-        "title" => "Beachview Layout",
-        "location" => "Seaside Avenue",
-        "price" => "$750,000",
-        "status" => "Under Construction",
-        "image" => "images/beachview.jpg",
-        "description" => "Premium apartments located near the beach, offering stunning views.",
-        "highlights" => ["Sea View", "Private Balcony", "Modern Gym", "High-Speed Elevators"],
-        "propertyType" => "Apartment",
-        "totalArea" => "2,500 sq.ft",
-        "yearBuilt" => "2023",
-        "totalUnits" => "120",
-        "amenities" => "Pool, Gym, Beach Access",
-    ],
-    "skyline" => [
-        "title" => "Skyline Penthouses",
-        "location" => "City Center",
-        "price" => "$1,200,000",
-        "status" => "Available",
-        "image" => "images/skyline.jpg",
-        "description" => "Exclusive penthouses offering a breathtaking skyline view.",
-        "highlights" => ["Sky Lounge", "Private Elevator", "Luxury Interiors", "Smart Home Features"],
-        "propertyType" => "Penthouse",
-        "totalArea" => "5,500 sq.ft",
-        "yearBuilt" => "2021",
-        "totalUnits" => "30",
-        "amenities" => "Pool, Gym, Concierge, Rooftop Garden",
-    ],
-];
+//     "beachview" => [
+//         "title" => "Beachview Layout",
+//         "location" => "Seaside Avenue",
+//         "price" => "$750,000",
+//         "status" => "Under Construction",
+//         "image" => "images/beachview.jpg",
+//         "description" => "Premium apartments located near the beach, offering stunning views.",
+//         "highlights" => ["Sea View", "Private Balcony", "Modern Gym", "High-Speed Elevators"],
+//         "propertyType" => "Apartment",
+//         "totalArea" => "2,500 sq.ft",
+//         "yearBuilt" => "2023",
+//         "totalUnits" => "120",
+//         "amenities" => "Pool, Gym, Beach Access",
+//     ],
+//     "skyline" => [
+//         "title" => "Rock view Layout",
+//         "location" => "Vasavi school backside",
+//         // "price" => "$1,200,000",
+//         "status" => "Available",
+//         "image" => "images/skyline.jpg",
+//         "description" => "Exclusive penthouses offering a breathtaking skyline view.",
+//         "highlights" => ["Sky Lounge", "Private Elevator", "Luxury Interiors", "Smart Home Features"],
+//         "propertyType" => "Penthouse",
+//         "totalArea" => "5,500 sq.ft",
+//         "yearBuilt" => "2021",
+//         "totalUnits" => "30",
+//         "amenities" => "Pool, Gym, Concierge, Rooftop Garden",
+//     ],
+   ];
 
 // Get the project identifier from the URL
 $projectKey = "";
@@ -69,447 +71,6 @@ $project = $projects[$projectKey];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($project['title']); ?> - Project Details</title>
-    <!-- Add fallback inline styles in case the CSS file isn't loading -->
-    <!-- <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .error-container {
-            max-width: 800px;
-            margin: 100px auto;
-            padding: 30px;
-            text-align: center;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .project-details-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Mobile first design - start with styles for small screens */
-        .project-header {
-            margin-bottom: 20px;
-        }
-        
-        .project-header h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        
-        .project-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            font-size: 14px;
-        }
-        
-        .project-meta span {
-            margin-right: 15px;
-        }
-        
-        .project-meta i {
-            margin-right: 5px;
-            color: #3498db;
-        }
-        
-        .project-gallery {
-            margin-bottom: 30px;
-        }
-        
-        .main-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .thumbnail-gallery {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-        
-        .thumbnail {
-            width: 80px;
-            height: 60px;
-            border-radius: 4px;
-            cursor: pointer;
-            object-fit: cover;
-        }
-        
-        .thumbnail.active {
-            border: 2px solid #3498db;
-        }
-        
-        .project-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .project-description {
-            width: 100%;
-        }
-        
-        .project-description h2, 
-        .project-highlights h3,
-        .key-details h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .project-highlights ul {
-            list-style: none;
-        }
-        
-        .project-highlights li {
-            margin-bottom: 10px;
-        }
-        
-        .project-highlights i {
-            color: #27ae60;
-            margin-right: 10px;
-        }
-        
-        /* .project-sidebar {
-            width: 100%;
-            background: #fff;
-            border-radius: 5px;
-            padding: 1px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        
-        } */
-      /* Sidebar */
-        .project-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .key-details {
-            background-color: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .key-details h3 {
-            margin-top: 0;
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .key-details ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .key-details li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed var(--medium-gray);
-            padding-bottom: 0.5rem;
-        }
-
-        .key-details li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        
-        .project-features {
-            margin-bottom: 40px;
-        }
-        
-        .project-features h2 {
-            margin-bottom: 100px;
-            color: #2c3e50;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .feature-item {
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .feature-item i {
-            font-size: 30px;
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-        
-        .feature-item h4 {
-            margin-bottom: 5px;
-            color: #2c3e50;
-        }
-        
-        .location-section {
-            margin-bottom: 40px;
-        }
-        
-        .location-section h2 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .location-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 250px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .location-map {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .nearby-places h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .nearby-places ul {
-            list-style: none;
-        }
-        
-        .nearby-places li {
-            margin-bottom: 10px;
-        }
-        
-        .nearby-places i {
-            margin-right: 10px;
-            color: #3498db;
-        }
-        
-        .similar-projects {
-            margin-bottom: 40px;
-        }
-        
-        .similar-projects h2 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .similar-projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        
-        .similar-project-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .similar-project-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-        
-        .similar-project-card h4 {
-            padding: 15px 15px 5px;
-            color: #2c3e50;
-        }
-        
-        .similar-project-card p {
-            padding: 0 15px 15px;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .view-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background: #3498db;
-            color: #fff;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .view-btn:hover {
-            background: #2980b9;
-        }
-        
-        .cta-section {
-            background: #2c3e50;
-            color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .cta-section h2 {
-            margin-bottom: 10px;
-        }
-        
-        .cta-section p {
-            margin-bottom: 20px;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .cta-btn.primary {
-            background: #e74c3c;
-            color: #fff;
-        }
-        
-        .cta-btn.primary:hover {
-            background: #c0392b;
-        }
-        
-        .cta-btn.secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-        }
-        
-        .cta-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Media queries for larger screens */
-        @media (min-width: 768px) {
-            .project-header h1 {
-                font-size: 32px;
-            }
-            
-            .project-meta {
-                flex-direction: row;
-                font-size: 16px;
-            }
-            
-            .main-image {
-                height: 400px;
-            }
-            
-            .project-content {
-                flex-direction: row;
-            }
-            
-            .project-description {
-                width: 65%;
-            }
-            
-            .project-sidebar {
-                width: 35%;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .location-content {
-                flex-direction: row;
-            }
-            
-            .map-container {
-                width: 60%;
-                height: 300px;
-            }
-            
-            .nearby-places {
-                width: 40%;
-            }
-            
-            .similar-projects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .main-image {
-                height: 500px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        }
-        
-        @media (max-width: 320px) {
-            .project-meta span {
-                font-size: 12px;
-            }
-            
-            .main-image {
-                height: 200px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-        }
-    </style> -->
     <link rel="stylesheet" href="../css/project-details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -521,7 +82,7 @@ $project = $projects[$projectKey];
             <h1 id="project-title"><?php echo htmlspecialchars($project['title']); ?></h1>
             <div class="project-meta">
                 <span class="location"><i class="fas fa-map-marker-alt"></i> <span id="project-location"><?php echo htmlspecialchars($project['location']); ?></span></span>
-                <span class="price"><i class="fas fa-tag"></i> Starting at <span id="project-price"><?php echo htmlspecialchars($project['price']); ?></span></span>
+                <!-- <span class="price"><i class="fas fa-tag"></i> Starting at <span id="project-price"><?php echo htmlspecialchars($project['price']); ?></span></span> -->
                 <span class="status"><i class="fas fa-clock"></i> <span id="project-status"><?php echo htmlspecialchars($project['status']); ?></span></span>
             </div>
         </div>
@@ -595,12 +156,12 @@ $project = $projects[$projectKey];
             <div class="features-grid">
                 <div class="feature-item">
                     <i class="fas fa-swimming-pool"></i>
-                    <h4>Swimming Pool</h4>
-                    <p>Luxurious pool with lounging areas</p>
+                    <h4>Underground Electricity</h4>
+                    <p>24/7 Electricity supply</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-dumbbell"></i>
-                    <h4>Fitness Center</h4>
+                    <h4>Open Gym</h4>
                     <p>State-of-the-art gym equipment</p>
                 </div>
                 <div class="feature-item">
@@ -627,11 +188,29 @@ $project = $projects[$projectKey];
         </div>
         
         <div class="location-section">
-            <h2>Location</h2>
+            <!-- <h2>Location</h2>
             <div class="location-content">
-                <div class="map-container">
+                <div class="map-container"> -->
                     <!-- Replace with an actual map integration when possible -->
-                    <img src="/api/placeholder/600/300" alt="Map Location of <?php echo htmlspecialchars($project['title']); ?>" class="location-map">
+                    <!-- <img src="/api/placeholder/600/300" alt="Map Location of <?php echo htmlspecialchars($project['title']); ?>" class="location-map"> -->
+                    <div class="location-section">
+                        <h2>Location</h2>
+                        <div class="location-content">
+                            <div class="map-container">
+                                <iframe 
+                                    src="[https://www.google.com/maps?q=15.139583,76.959889](https://www.google.com/maps?q=15.139583,76.959889)"
+                                    width="100%" 
+                                    height="450" 
+                                    style="border:0; border-radius:10px; max-width: 100%;" 
+                                    allowfullscreen 
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
                 <!-- <div class="nearby-places">
                     <h3>Nearby Places</h3>

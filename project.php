@@ -112,24 +112,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Project 2 -->
             <div class="project-card">
-                <img src="images/beachview.jpg" alt="Beachview Layout" class="project-image">
+                <img src="images/beachview.jpg" alt="Brundavan Layout" class="project-image">
                 <div class="project-info">
-                    <h3>Beachview Layout</h3>
+                    <h3>Brundavan Layout</h3>
                     <p>Premium apartments in the heart of the city</p>
-                    <a href="project-details.php?project=beachview">
-                        <button class="view-project-btn">View Project Details</button>
+                    <!-- <a href="project-details.php?project=beachview"> -->
+                        <button class="view-project-btn">Completed</button>
                     </a>
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="project-card">
-                <img src="images/skyline.jpg" alt="Skyline Penthouses" class="project-image">
+                <img src="images/skyline.jpg" alt="Rock view Layout" class="project-image">
                 <div class="project-info">
-                    <h3>Skyline Penthouses</h3>
+                    <h3>Rock view Layout</h3>
                     <p>Exclusive penthouses with panoramic views</p>
-                    <a href="project-details.php?project=skyline">
-                        <button class="view-project-btn">View Project Details</button>
+                    <!-- <a href="project-details.php?project=skyline"> -->
+                        <button class="view-project-btn">Completed</button>
                     </a>
                 </div>
             </div>
