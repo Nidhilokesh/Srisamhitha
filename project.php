@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img src="../assets/images/sarayu.jpg" alt="Ssarayu-image" class="project-image">
                 <div class="project-info">
                     <h3>Sarayu Encalve</h3>
-                    <p>Luxury villa with modern amenities</p>
+                    <p>Luxury plots with modern amenities</p>
                     <a href="project-details.php?project=parkview">
                         <button class="view-project-btn">View Project Details</button>
                     </a>
@@ -112,25 +112,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <!-- Project 2 -->
             <div class="project-card">
+                <div class="ribbon">Completed</div>
                 <img src="../assets/images/images.jpg" alt="Brundavan Layout" class="project-image">
                 <div class="project-info">
                     <h3>Brundavan Layout</h3>
-                    <p>Premium apartments in the heart of the city</p>
-                    <!-- <a href="project-details.php?project=beachview"> -->
-                        <button class="view-project-btn">Completed</button>
-                    </a>
+                    <p>Premium plots in the heart of the city</p>
+                    <!-- <button class="view-project-btn">Completed</button> -->
                 </div>
             </div>
 
+
+
+
             <!-- Project 3 -->
             <div class="project-card">
+                <div class="ribbon">Completed</div>
                 <img src="../assets/images/1.jpg" alt="Rock view Layout" class="project-image">
                 <div class="project-info">
                     <h3>Rock view Layout</h3>
-                    <p>Exclusive penthouses with panoramic views</p>
+                    <p>Exclusive plots with panoramic views</p>
                     <!-- <a href="project-details.php?project=skyline"> -->
-                        <button class="view-project-btn">Completed</button>
-                    </a>
+                        <!-- <button class="view-project-btn">Completed</button> -->
+                    <!-- </a> -->
                 </div>
             </div>
         </div>

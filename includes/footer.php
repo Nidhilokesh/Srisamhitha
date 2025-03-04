@@ -67,9 +67,9 @@ function renderFooter() {
                 <h3>Social Media</h3>
                 <div class="social-media">
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <!-- <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a> -->
                 </div>
             </div>
         </div>
