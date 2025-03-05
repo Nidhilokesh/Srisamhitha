@@ -40,34 +40,37 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // AJAX request to submit the form data
-    let formData = new FormData(document.getElementById('contactForm'));
+   // AJAX request to submit the form data
+   let formData = new FormData(document.getElementById('contactForm'));
     
-    fetch('contact.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        Swal.fire({
-            icon: data.status === 'success' ? 'success' : 'error',
-            title: data.status === 'success' ? 'Message Sent!' : 'Error',
-            text: data.message,
-        }).then(() => {
-            if (data.status === 'success') {
-                document.getElementById('contactForm').reset();
-            }
-        });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        Swal.fire({
-            icon: 'error',
-            title: 'Something went wrong!',
-            text: 'Please try again later.',
-        });
-    });
-});
+   fetch('contact.php', {
+       method: 'POST',
+       body: formData
+   })
+   .then(response => response.json())
+   .then(data => {
+       Swal.fire({
+           icon: data.status === 'success' ? 'success' : 'error',
+           title: data.status === 'success' ? 'Message Sent!' : 'Error',
+           text: data.message,
+       }).then(() => {
+           if (data.status === 'success') {
+               document.getElementById('contactForm').reset();
+           }
+       });
+   })
+   .catch(error => {
+       console.error('Error:', error);
+       Swal.fire({
+           icon: 'error',
+           title: 'Something went wrong!',
+           text: 'Please try again later.',
+       });
+   });
+  });
+  
+  
+  
 
 // Adjust scrolling behavior for mobile devices
 window.addEventListener('resize', function () {

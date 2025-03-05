@@ -4,7 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Landing Page</title>
+    <title>Sri Samhitha Enterprises</title>
+     <!-- Favicon -->
+     <link rel="icon" href="https://yourwebsite.com/favicon.png">
+    
+    <!-- Logo Schema for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sri Samhitha",
+        "url": "https://srisamhithaenterprises.com/index.php",
+        "logo": "https://lh3.googleusercontent.com/p/AF1QipN08ItdEKkBi9k8s1bCfjyo8KyaCjS-ShgX2UCM=s680-w680-h510"
+    }
+    </script>
         <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>

@@ -5,14 +5,15 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Adjust path if needed
 
-$alertMessage = ""; // Variable to store JavaScript alert message
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
     $email = htmlspecialchars($_POST['email']);
     $phone = htmlspecialchars($_POST['phone']);
     $message = htmlspecialchars($_POST['message']);
+
+    // Combine first & last name for sender's name
+    $name = $firstName . ' ' . $lastName;
 
     $mail = new PHPMailer(true);
 
@@ -26,8 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-        // Sender & Recipient
-        $mail->setFrom($email, $name);
+        // Sender & Recipient (FIXED)
+        $mail->setFrom('mstrupthi@gmail.com', 'Sri Samhitha Contact Form'); // Use your own email
+        $mail->addReplyTo($email, $name); // User email for replies
         $mail->addAddress('mstrupthi@gmail.com'); // Receiver's email
 
         // Email Content
@@ -35,39 +37,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Subject = 'New Contact Form Submission';
         $mail->Body = "
             <h2>Contact Form Submission</h2>
-            <p><strong>Name:</strong> $firstName</p>
-            <p><strong>Message:</strong> $lastName</p>
+            <p><strong>Name:</strong> $firstName $lastName</p>
             <p><strong>Email:</strong> $email</p>
             <p><strong>Phone:</strong> $phone</p>
             <p><strong>Message:</strong> $message</p>
         ";
 
         // Send Email
-        $mail->send();
-        $alertMessage = "<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Message Sent!',
-                    text: 'Your message has been sent successfully.',
-                    confirmButtonText: 'OK'
-                });
-            });
-        </script>";
+        if ($mail->send()) {
+            $response = ['status' => 'success', 'message' => 'Your message has been sent successfully!'];
+        } else {
+            $response = ['status' => 'error', 'message' => 'Message could not be sent.'];
+        }
     } catch (Exception $e) {
-        $alertMessage = "<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Message Not Sent',
-                    text: 'Error: {$mail->ErrorInfo}',
-                    confirmButtonText: 'Try Again'
-                });
-            });
-        </script>";
+        $response = ['status' => 'error', 'message' => "Mailer Error: {$mail->ErrorInfo}"];
     }
+
+    // Debugging: Log error to a file (Optional)
+    file_put_contents('mail_log.txt', json_encode($response) . "\n", FILE_APPEND);
+
+    // Send JSON response
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,30 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Contact Us - Sri Samhitha</title>
     <link rel="stylesheet" href="../css/contact.css">
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            let formData = new FormData(this);
-
-            fetch("contact.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                if (data.status === "success") {
-                    document.getElementById("contactForm").reset();
-                }
-            })
-            .catch(error => console.error("Error:", error));
-        });
-    });
-    </script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
