@@ -1,162 +1,136 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
 
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
+    // Smooth animations for elements appearing on scroll
+    const elementsToAnimate = document.querySelectorAll(
+        '.contact-features .feature, .contact-section, .map-container, .cta-section'
+    );
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('animate');
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.3 });
 
-    // Observe all elements with animation class
-    animatedElements.forEach(element => {
-        observer.observe(element);
+    elementsToAnimate.forEach((el) => observer.observe(el));
+
+    // Adjust scrolling behavior for mobile devices
+    window.addEventListener('resize', function () {
+        if (window.innerWidth < 480) {
+            document.body.style.zoom = '100%'; // Prevents zooming issues on mobile
+        }
     });
 
-    // Initial animation for already visible elements
-    setTimeout(() => {
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            if (isElementInViewport(element)) {
-                element.classList.add('visible');
-                observer.unobserve(element);
+    // Form submission handling
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+            let isValid = true;
+            const inputs = form.querySelectorAll('input, textarea');
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#ff4444';
+                    shake(input);
+                } else {
+                    input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }
+            });
+            
+            if (!isValid) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please fill in all required fields',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#dc3545'
+                });
+            } else {
+                // Show loading state
+                const submitBtn = form.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                // Send form data via AJAX
+                const formData = new FormData(form);
+                
+                fetch('process_contact.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    
+                    if (data.status === 'success') {
+                        // Reset the form
+                        form.reset();
+                        
+                        // Show success message
+                        Swal.fire({
+                            title: 'Message Sent!',
+                            text: 'Thank you for contacting us. We will get back to you soon.',
+                            icon: 'success',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#28a745'
+                        });
+                    } else {
+                        // Show error message
+                        Swal.fire({
+                            title: 'Error',
+                            text: data.message || 'There was a problem sending your message. Please try again later.',
+                            icon: 'error',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#dc3545'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'There was a problem sending your message. Please try again later.',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#dc3545'
+                    });
+                });
             }
         });
-    }, 100);
+    }
 
-    // Form submission with animation
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Add sending animation to button
-        const submitBtn = contactForm.querySelector('.btn');
-        submitBtn.innerText = 'Sending...';
-        submitBtn.style.opacity = '0.7';
-        submitBtn.disabled = true;
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
+    // Function to shake invalid inputs
+    function shake(element) {
+        element.style.animation = 'none';
+        element.offsetHeight; // Trigger reflow
+        element.style.animation = 'shake 0.5s ease-in-out';
+    }
+
+    // Basic form validation on inputs
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.required && !input.value.trim()) {
+                input.style.borderColor = '#ff4444';
+                shake(input);
+            } else {
+                input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
         });
-
-        // Simulate form submission
-        setTimeout(() => {
-            // Normally you would send this data to a server
-            console.log('Form data:', formObject);
-            
-            // Show success message
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
-        }, 1000);
+        
+        // Clear error styling on input
+        input.addEventListener('input', () => {
+            if (input.value.trim()) {
+                input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
     });
 });
-
-// Google Maps API
-function initMap() {
-    const location = { lat: 40.7128, lng: -74.0060 }; // New York coordinates
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13,
-        center: location,
-        styles: [
-            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-            {
-                featureType: "administrative.locality",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#d4af37" }],
-            },
-            {
-                featureType: "poi",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#d4af37" }],
-            },
-            {
-                featureType: "poi.park",
-                elementType: "geometry",
-                stylers: [{ color: "#263c3f" }],
-            },
-            {
-                featureType: "poi.park",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#6b9a76" }],
-            },
-            {
-                featureType: "road",
-                elementType: "geometry",
-                stylers: [{ color: "#38414e" }],
-            },
-            {
-                featureType: "road",
-                elementType: "geometry.stroke",
-                stylers: [{ color: "#212a37" }],
-            },
-            {
-                featureType: "road",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#9ca5b3" }],
-            },
-            {
-                featureType: "road.highway",
-                elementType: "geometry",
-                stylers: [{ color: "#746855" }],
-            },
-            {
-                featureType: "road.highway",
-                elementType: "geometry.stroke",
-                stylers: [{ color: "#1f2835" }],
-            },
-            {
-                featureType: "road.highway",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#f3d19c" }],
-            },
-            {
-                featureType: "transit",
-                elementType: "geometry",
-                stylers: [{ color: "#2f3948" }],
-            },
-            {
-                featureType: "transit.station",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#d4af37" }],
-            },
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [{ color: "#17263c" }],
-            },
-            {
-                featureType: "water",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#515c6d" }],
-            },
-            {
-                featureType: "water",
-                elementType: "labels.text.stroke",
-                stylers: [{ color: "#17263c" }],
-            },
-        ],
-    });
-    
-    const marker = new google.maps.Marker({
-        position: location,                
-        map: map,
-        title: "Our Location",
-    });
-}
